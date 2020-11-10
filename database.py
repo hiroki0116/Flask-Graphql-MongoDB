@@ -6,7 +6,7 @@ from models import Ranking
 
 
 #Using free cluster of Mongodb Atlas
-DB_URI = "mongodb+srv://db_hseino:Everythingis6@cluster0.upiob.mongodb.net/db_hseino?retryWrites=true&w=majority"
+DB_URI = "mongodb+srv://db_hseino:<yourpassword>@cluster0.upiob.mongodb.net/db_hseino?retryWrites=true&w=majority"
 connection = connect(host=DB_URI)
 db = connection.list_database_names()
 connection.drop_database("db_hseino") #Drop database first everytime run this program
