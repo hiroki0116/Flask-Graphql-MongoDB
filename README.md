@@ -55,6 +55,11 @@ Insert the following default query
 
 ![graphql](img/top.png)
 
+## Database
+
+Using mongoDB Atlas.
+When scaping the top 100 songs, they will be stored in the mongo db.
 
 
+![mongodb](img/db.png)
 
