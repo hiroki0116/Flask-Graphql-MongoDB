@@ -11,7 +11,7 @@ response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
 
-def _get_title_artist():
+def get_title_artist():
     ranking_list = [] 
     for i in range(1,101):
         div = soup.find('div',id= 'chart-position-'+ str(i))
@@ -27,19 +27,15 @@ def _get_title_artist():
         ranking_list.append({"no":i,"title":title, "artist":artist, "img": img})
         
 
-    return ranking_list
+    return {"songs": ranking_list}
 
-def get_table():
-    yield{
-        "songs": _get_title_artist()
-    }
 
 
 #Store data in ranking.json
 def scraping():
     """ Main function """
-    get_table()
-    df = pd.DataFrame.from_dict(get_table())
+    get_title_artist()
+    df = pd.DataFrame.from_dict(get_title_artist())
     print(f"Found {len(df)} results")
     df.to_json("ranking.json", orient="records")
 
