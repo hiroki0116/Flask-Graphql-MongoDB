@@ -27,14 +27,12 @@ def get_title_artist():
         ranking_list.append({"no":i,"title":title, "artist":artist, "img": img})
         
 
-    return {"songs": ranking_list}
-
+    return ranking_list
 
 
 #Store data in ranking.json
 def scraping():
     """ Main function """
-    get_title_artist()
     df = pd.DataFrame.from_dict(get_title_artist())
     print(f"Found {len(df)} results")
     df.to_json("ranking.json", orient="records")

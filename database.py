@@ -17,11 +17,10 @@ def init_db():
     with open("ranking.json", "r") as file:
         data = json.loads(file.read())
 
-    
+    rankings = []
     for row in data:
-        rankings = []
-        for elem in row["songs"]:
-            ranking = Ranking(no = elem["no"],title=elem["title"], artist=elem["artist"], img = elem["img"])
-            ranking.save()
-            rankings.append(ranking)
-
+        ranking = Ranking(no = row["no"],title = row["title"], artist = row["artist"], img = row["img"])
+        ranking.save()
+        rankings.append(ranking)
+        
+        
